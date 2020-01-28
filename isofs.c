@@ -11,9 +11,10 @@
 #include "iso2opl.h"
 
 
+#define ftello64 ftell
+#define fseeko64 fseek
 static int isofs_inited = 0;
 static int gIsBigEnd = 0;
-
 #define MAX_DIR_CACHE_SECTORS 32
 
 //int g_fh_iso;
