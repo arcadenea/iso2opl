@@ -22,19 +22,19 @@ If everything goes fine, there will be a new file created named "iso2opl".
 Usage
 =====
 
-Simply put your PS2 USB mass storage device in the computer and type
+Simply put your PS2 USB mass storage device in the computer, mount it and type
 
 ./iso2opl /xxxxxx/game.iso /yyyyyyy/massdevice "name of the game" [CD/DVD]
 
 
 where:
  
-/xxxxxx is the path where your game iso exists
-/yyyyyy/massdevice is the path of your USB device (usually something like /dev/sdb, /dev/sdc)
+/xxxxxx is the path where your game iso exists.
+/yyyyyy/massdevice is the path of your mounted USB device (usually something like /media/xxxxx). You can check this out with the command "mount".
 "name of the game" is the name that you want to be displayed on Open PS2 Loader. It must have between 3 and 32 characters.
 [CD/DVD] It depends if the original media of the game is a CD or a DVD.
 
 
 Example:
 
-./iso2opl /home/user/game.iso /dev/sdb "awesome game" DVD
+./iso2opl /home/user/game.iso /media/myusbstorage "awesome game" DVD
