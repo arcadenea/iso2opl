@@ -1,5 +1,4 @@
 TARGET=iso2opl
-CC = gcc
 
 
 CFLAGS = -std=gnu99 -pedantic -I/usr/include -I/usr/local/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
@@ -27,5 +26,5 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -r $(OBJS) $(TARGET)
+	rm -rf $(OBJS) $(TARGET)
 
