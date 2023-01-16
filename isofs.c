@@ -11,8 +11,6 @@
 #include "iso2opl.h"
 
 
-#define ftello64 ftell
-#define fseeko64 fseek
 static int isofs_inited = 0;
 static int gIsBigEnd = 0;
 #define MAX_DIR_CACHE_SECTORS 32
@@ -167,7 +165,7 @@ int isofs_ReadISO(s64 offset, u32 nbytes, void *buf)
 
     //lseek64(g_fh_iso, offset, SEEK_SET);
     //r = read(g_fh_iso, buf, nbytes);
-    fseeko64(g_fh_iso, offset, SEEK_SET);
+    fseeko(g_fh_iso, offset, SEEK_SET);
     r = fread(buf, 1, nbytes, g_fh_iso);
 
     /*
@@ -1060,9 +1058,9 @@ s64 isofs_Init(const char *iso_path, int isBigEndian)
 
     //r = lseek64(g_fh_iso, 0, SEEK_END);
     //lseek64(g_fh_iso, 0, SEEK_SET);
-    fseeko64(g_fh_iso, 0, SEEK_END);
-    r = ftello64(g_fh_iso);
-    fseeko64(g_fh_iso, 0, SEEK_SET);
+    fseeko(g_fh_iso, 0, SEEK_END);
+    r = ftello(g_fh_iso);
+    fseeko(g_fh_iso, 0, SEEK_SET);
 
     isofs_inited = 1;
 
